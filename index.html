@@ -224,29 +224,69 @@
 
 <script>
   const projects = [
-    { title: "AI Smart Chat-Bot", image: "https://via.placeholder.com/300" },
-    { title: "Eye Tracking Mouse Cursal Movement", image: "https://via.placeholder.com/300" },
-    { title: "Windows Control Using Voice", image: "https://via.placeholder.com/300" },
-    { title: "Windows Control Using Gestures", image: "https://via.placeholder.com/300" },
-    { title: "Matchstick Firing", image: "https://via.placeholder.com/300" },
-  ];
+        { title: "Movies_Recommend_System",
+        image: "https://user-images.githubusercontent.com/72141546/153005506-f987c24e-9725-4fbc-a73d-b773d88c2c3b.png",
+        github:"https://github.com/Shuubhim/Movies_Recommend_System",
+        demo:"https://dpai3jx7az5fqpacdsiuge.streamlit.app/" },
+
+        {
+           title: "Eye Tracking Mouse Cursal Movement",
+        image: "https://i.ytimg.com/vi/L2XUKeLD6N8/maxresdefault.jpg",
+        github:"https://github.com/Shuubhim/Movies_Recommend_System"
+        },
+
+        {
+           title: "Windows Control Using Voice",
+        image: "https://www.softzone.es/app/uploads-softzone.es/2022/03/Accusonus-Voice-Changer.jpg",
+        github:"https://github.com/Shuubhim/Movies_Recommend_System" ,
+        demo:"https://dpai3jx7az5fqpacdsiuge.streamlit.app/"
+        },
+
+        {
+           title: "Stock Price Prediction",
+        image: "https://miro.medium.com/max/3060/1*HYIguzm06xoiccWLTejXvw.png",
+        github:"https://github.com/Shuubhim/Movies_Recommend_System",
+        demo:"https://dpai3jx7az5fqpacdsiuge.streamlit.app/" 
+        },
+
+        { 
+        title: "Detection of Fake News",
+        image: "https://th.bing.com/th/id/OIP.tsRAm4F5_YdhUfZsJ5IL0QHaEL?rs=1&pid=ImgDetMain",
+        github:"https://github.com/Shuubhim/Movies_Recommend_System",
+        demo:"https://dpai3jx7az5fqpacdsiuge.streamlit.app/"
+        },
+      ];
+
 
   const projectGrid = document.getElementById("project-grid");
 
   const displayProjects = (filteredProjects) => {
-    projectGrid.innerHTML = "";
+    projectGrid.innerHTML = ""; // Clear previous content
+  
     filteredProjects.forEach((project) => {
       const card = document.createElement("div");
       card.className = "project-card";
+  
       card.innerHTML = `
         <img src="${project.image}" alt="${project.title}" class="project-image">
         <h3 class="project-title">${project.title}</h3>
-        <button class="project-button">View Project</button>
-      `;
+        ${project.github ? `
+          <a href="${project.github}" target="_blank">
+            <button class="project-button">View Project</button>
+          </a>` 
+          : `<span class="no-link">Link not available</span>`}
+
+         ${project.demo ? `
+        <a href="${project.demo}" target="_blank">
+          <button class="project-button">View Demo</button>
+        </a>` 
+        : `<span class="no-link">Demo Link not available</span>`}
+    `;
+
       projectGrid.appendChild(card);
     });
   };
-
+  
   displayProjects(projects);
 </script>
 
